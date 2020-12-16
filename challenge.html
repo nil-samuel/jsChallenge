@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<body style="font-size: medium; font-family: Arial, Helvetica, sans-serif;">
+
+<h2>Customer 001 orders:</h2>
+
+<p id="demo"></p>
+
+<script>
+// Create an object:
+var line1 = {
+  amount: 9,
+  id: 1,
+  price: 2,
+};
+
+// Display some data from the object:
+document.getElementById("demo").innerHTML ="<li>" +
+line1.amount + " items of Product ID" + line1.id + " @ "+line1.price + " kshs per item" ;
+</script>
+
+<p id="demo2"></p>
+
+<script>
+// Create an object:
+var line2 = {
+  amount:25,
+  id: 2,
+  price: 4,
+};
+
+// Display some data from the object:
+document.getElementById("demo2").innerHTML ="<li>"  +
+line2.amount + " items of Product ID" + line2.id + " @ "+line2.price + " kshs per item" ;
+</script>
+
+
+
+<p id="demo3"></p>
+
+<script>
+// Create an object:
+var line3 = {
+  amount:64,
+  id: 3,
+  price: 6,
+};
+
+// Display some data from the object:
+document.getElementById("demo3").innerHTML ="<li>"  +
+line3.amount + " items of Product ID" + line3.id + " @ "+line3.price + " kshs per item" ;
+</script>
+
+<p>The discount rates are: <br>
+ <li> 10 - 24 items : 10 cents off. <br></li>
+ <li> 25 - 50 items : 25 cents off. <br></li>
+ <li> 50 plus items : 50 cents off. <br</li>
+</p>
+
+
+
+ <!-- line one -->  
+ <p>Total price for line 1 : </p>
+ <p id="line1"></p>
+ <script>
+   var x = totals(9, 2);
+   document.getElementById("line1").innerHTML =" Kshs. " + x;
+       function totals(x, y) {
+          return x * y ;
+        }
+ </script>
+ <p>No discounts for line 1. </p>
+ 
+
+
+<!-- line two -->  
+<p>Total price for line 2 : </p>
+<p id="line2"></p>
+<script>
+  var x = totals(25, 4);
+       document.getElementById("line2").innerHTML =" Kshs. " + x;
+       function totals(x, y) {
+          return x * y ;
+        }
+</script>
+<p>Discounts for line 2 : </p>
+ <p id="discount2"></p>
+ <script>
+   var x = discounts(.25, 25);
+       document.getElementById("discount2").innerHTML =" Kshs. " + x;
+       function discounts(a, b) {
+          return a * b ;
+            }     
+</script>
+
+
+
+<!-- line three -->  
+<p>Total price for line 3 : </p>
+<p id="line3"></p>
+<script>
+var x = totals3(64, 6);
+document.getElementById("line3").innerHTML =" Kshs. " + x;
+function totals3(x, y) {
+return x * y ;
+       }
+</script>
+<p>Discounts for line 3 : </p>
+<p id="discount3"></p>
+<script>
+var x = discounts(.50, 64);
+document.getElementById("discount3").innerHTML =" Kshs. " + x;
+function discounts(a, b) {
+ return a * b ;
+   }     
+</script>
+
+<!-- TOTAL PRICE -->
+
+
+<p> Grand total price of orders :</p>
+
+<p id="demo0"></p>
+
+<script>
+var x = totalsAll(9, 2, 25, 4, 64, 6);
+document.getElementById("demo0").innerHTML =" Kshs. " + x;
+        function totalsAll(a, b, c, d, e, f) {
+        return a * b + c * d + e * f;
+        }
+
+</script>
+
+<!-- TOTAL DISCOUNTS -->
+<p> Grand total of discounts :</p>
+
+<p id="discounts"></p>
+
+<script>
+var x = totalDiscount(.10, 9, .25, 25, .50, 64);
+document.getElementById("discounts").innerHTML =" Kshs. " +  x;
+
+function totalDiscount(a, b, c, d, e, f) {
+return a * b + c * d + e * f;
+}
+</script>
+
+
+<!-- TOTAL PRICE WITH DISCOUNTS -->
+
+
+
+    <p> The Grand total price after discounts : </p>
+        <script>
+          
+          var x = totalsAll(9, 2, 25, 4, 64, 6);
+          var y= totalDiscount(.10, 9, .25, 25, .50, 64);
+
+          var fullPrice = x - y ;
+
+          document.write(fullPrice); 
+
+        </script>
+    
+
+
+</body>
+</html>
